@@ -75,9 +75,48 @@
 
 <script type="text/javascript">
 
-$(document).ready(function() {
+let num1, num2, operator, total;
 
-// Your code here...
+
+
+$(document).ready(function() {
+  $('button').on('click', function(e) {
+    let btn = e.target.innerHTML;
+    if (btn >= '0' && btn <= '9') {
+      numberPress(btn); 
+    }
+    else {
+      operatorPress(btn);
+      }    
+  });
+
+
+
+
+
+  function numberPress(num) {
+    if(num === "") {
+      num1 = num;
+    }
+    else {
+      num2 = num
+    }
+    display(num);
+  }
+
+  function operatorPress(oper) {    
+    operator = oper;
+    }
+
+  function display(btn) {
+    $("#first-number").text(btn);
+    $("#second-number").text(btn);
+    $("#operator").text(btn);
+    $("#result").text(btn);
+  }
+
+calculate total
+
 
 
 });

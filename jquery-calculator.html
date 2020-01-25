@@ -90,10 +90,6 @@ $(document).ready(function() {
       }    
   });
 
-
-
-
-
   function numberPress(num) {
     if(num === "") {
       num1 = num;
@@ -105,17 +101,45 @@ $(document).ready(function() {
   }
 
   function operatorPress(oper) {    
-    operator = oper;
-    }
-
-  function display(btn) {
-    $("#first-number").text(btn);
-    $("#second-number").text(btn);
-    $("#operator").text(btn);
-    $("#result").text(btn);
+    if (operator === '') {
+      operator = oper;  
+      display(oper);  
+    } 
+    else {        
+      calculateTotal();        
+      operator = oper;    
+    }             
   }
 
-calculate total
+  function display() {
+    $("#first-number").text(num1);
+    $("#second-number").text(num2);
+    $("#operator").text(operator);
+    $("#result").text(total);
+  }
+
+function calculateTotal() {
+  switch (operator) {
+  case '+':            
+    total = parseInt(num1) + parseInt(num2);
+    numberPress(total);
+  break; 
+  case '-':
+    total = parseInt(num1) - parseInt(num2);
+    numberPress(total);
+  break;
+  case '*':
+    total = parseInt(num1) * parseInt(num2);
+    numberPress(total);
+  break;
+  case '-':
+    total = Math.pow(parseInt(num1), parseInt(num2));
+    numberPress(total);
+  break;
+
+  }}
+
+
 
 
 
